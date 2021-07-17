@@ -1,0 +1,16 @@
+.DS_Store
+.svn
+*~
+/tags
+log/
+db/*.sqlite3
+.netrwhist
+.agignore
+.aliases
+.docker-sync
+.ash_history
+image_tags.tfvars
+tags
+.elixir_ls
+.terraform
+dump.rdb

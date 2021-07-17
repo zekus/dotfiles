@@ -1,0 +1,11 @@
+function newproj() {
+  cd ~/projects
+  mkdir $1
+  cd $1
+  echo "alias $1 = 'cd ~/projects/$1'" >> ~/zsh/aliases
+  source ~/zsh/aliases
+}
+
+function newrproj() {
+  newproj $1
+}

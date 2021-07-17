@@ -1,0 +1,33 @@
+{
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.colorSupport": true,
+  "diagnostic.virtualText": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh", "bash"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "elixir",
+    "json",
+    "javascript",
+    "python",
+    "go",
+    "markdown"
+  ],
+  "codeLens.enable": true,
+  "solargraph.useBundler": true,
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh"
+}

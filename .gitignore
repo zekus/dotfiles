@@ -1,0 +1,16 @@
+vim/.netrwhist
+vim/plugged
+config/nvim/plugged
+tags.tmp
+config/hub
+config/configstore
+config/asciinema/install-id
+config/nvim/autoload
+config/base16-shell
+config/htop
+config/yarn/global/node_modules
+config/coc
+vscode/extensions
+config/karabiner/automatic_backups
+config/stripe
+config/gh

@@ -1,0 +1,59 @@
+[user]
+  name = Antonio Lorusso
+  email = antonio.lorusso@gmail.com
+[alias]
+  co = checkout
+  ci = commit
+  br = branch
+  st = status
+  cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  fallp = fetch --all -p
+  cm = "!git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+  cmr = "!git branch -r --merged | grep -v '\\*\\|master\\|develop' | sed 's/origin\\///' | xargs -n 1 git push --delete origin"
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[color "diff"]
+  meta = yellow
+[core]
+  excludesfile = /Users/antoniolorusso/.gitignore
+  editor = nvim --noplugin
+  #pager = delta
+  ignorecase = true
+  autocrlf = input
+[apply]
+  whitespace = nowarn
+[help]
+  autocorrect = 1
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+[push]
+  default = current
+  followTags = true
+[rerere]
+  enabled = 1
+[github]
+  user = zekus
+[diff "gpg"]
+  textconv = gpg -v
+  xfuncname = "^(.*)"
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[merge]
+  tool = vim_mergetool
+  conflictStyle = diff3
+[mergetool]
+  keepBackup = false
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[mergetool "vim_mergetool"]
+  cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+  trustExitCode = true
+[credential]
+  helper = osxkeychain
+#[interactive]
+#  diffFilter = delta --color-only

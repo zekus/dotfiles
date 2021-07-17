@@ -1,0 +1,113 @@
+# Handle the fact that this file will be used with multiple OSs
+platform=`uname`
+if [[ $platform == 'Linux' ]]; then
+  alias a='ls -lrth --color'
+elif [[ $platform == 'Darwin' ]]; then
+  alias a='ls -lrthG'
+fi
+
+alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias annotate="annotate --exclude tests,fixtures --show-indexes --simple-indexes"
+alias bake='bundle exec rake'
+alias be='bundle exec'
+alias bi='bundle install'
+alias be='bundle exec'
+alias bu='bundle update'
+alias bunbang='bundle install && !!'
+alias d='cd ~/.dotfiles'
+alias drop='cd ~/Dropbox'
+alias dmakemigrations="./manage.py makemigrations"
+alias cucumber='bundle exec cucumber'
+alias cpid='find . -iname \*pid -exec rm {} +'
+#alias irb='pry'
+alias migrate="rake db:migrate db:test:clone"
+alias gadd='git add .'
+alias gcm='git commit -am'
+alias gmr='git log --since="`date +%b` 1" --author=antonio --reverse'
+alias gpm='git push origin master'
+alias gp='git push'
+alias gpatch='git format-patch HEAD^ --stdout > patch.diff'
+alias gpull='git pull'
+alias greview="git diff master"
+alias gs="git status"
+alias killruby='killall -9 ruby'
+alias k="kubectl"
+alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
+alias remore='!! | more'
+alias reguard='killall -9 ruby ; guard'
+alias rerake='!! && rake'
+alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules *'
+alias retagwithcoffee='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules * && coffeetags -R -f >> tags'
+alias retagwithpython='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules * --python-kinds=-i'
+alias rc='rails console'
+#alias rspec='bundle exec rspec'
+alias rst="touch tmp/restart.txt"
+alias so='source ~/.dotfiles/zsh/aliases'
+alias vi='nvim'
+alias vim='nvim'
+
+# helm
+alias helm2=/usr/local/Cellar/helm@2/2.16.6/bin/helm
+alias tiller2=/usr/local/Cellar/helm@2/2.16.6/bin/tiller
+
+# Foreman
+if [ -f ./Procfile.dev ]; then
+  alias fstart='foreman start -f Procfile.dev'
+else
+  alias fstart='foreman start'
+fi
+
+# Redis
+alias redis-start='redis-server /usr/local/etc/redis.conf'
+
+# MongoDB
+alias mongo-start='mongod run --config /usr/local/etc/mongod.conf'
+
+# PostgreSQL
+alias pg-start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+
+# Terraform
+alias tw='terraform workspace list'
+alias tws='terraform workspace select'
+alias ta='terraform apply'
+alias tp='terraform plan'
+
+# Docker
+function fn_dgetin() {
+   docker exec -i -t $1 bash
+}
+function fn_dclo() {
+   docker-compose logs -f $1
+}
+
+function dm_unlink() {
+  sudo bash -c "sed -E '/[[:space:]]+$1\.dev/d' /etc/hosts > /etc/hosts.tmp && mv /etc/hosts.tmp /etc/hosts"
+}
+
+## containers
+alias drm='docker rm $(docker ps -q -f status=exited)'
+alias drma='docker rm $(docker ps -qa)'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
+alias dgetin=fn_dgetin
+alias dsetup=fn_dsetup
+## images
+alias dimg='docker images'
+alias dima='docker images -a'
+alias dirm='docker rmi $(docker images -q -f dangling=true)'
+alias dirma='docker rmi $(docker images -qa)'
+## composer
+alias dcb='docker-compose build'
+alias dcu='docker-compose up -d'
+alias dcs='docker-compose stop'
+## sync
+alias dsync='docker-sync stop && docker-sync start'
+
+# Elixir
+alias mt='mix test'
+alias mc='mix compile'
+alias mtf='MIX_ENV=test make full_test'
+
+## utilities
+# restart camera
+alias camera='sudo killall VDCAssistant'
