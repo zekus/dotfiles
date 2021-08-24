@@ -111,8 +111,13 @@ cask "vlc"
 cask "wkhtmltopdf"
 cask "zoom"
 cask "rectangle"
+cask "maccy" # clipboard manager
 
 # Fonts
 cask "font-anonymice-nerd-font"
 cask "font-droid-sans-mono-nerd-font"
 cask "font-fantasque-sans-mono-nerd-font"
+cask "font-caskaydia-cove-nerd-font"
+cask "font-agave-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-inconsolata-nerd-font"

@@ -20,6 +20,9 @@ require('paq-nvim') {
   -- utilities
   'windwp/nvim-autopairs';
 
+  -- Files tree
+  'kyazdani42/nvim-tree.lua';
+
   -- Comments
   'terrortylor/nvim-comment';
   'JoosepAlviste/nvim-ts-context-commentstring'; -- (check the treesitter config)
@@ -48,4 +51,8 @@ require('paq-nvim') {
 
   -- resize windows easily
   'jimsei/winresizer';
+
+  -- git
+  'samoshkin/vim-mergetool';
+  'lewis6991/gitsigns.nvim';
 }
