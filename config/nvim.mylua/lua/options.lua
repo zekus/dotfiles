@@ -40,12 +40,4 @@ vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 vim.cmd('set colorcolumn=99999') -- fix indentline for now
 vim.cmd('set ts=2') -- Insert 2 spaces for a tab
 vim.cmd('set sw=2') -- Change the number of space characters inserted for indentation
-
--- Format on save!
--- TODO: move each to an on_attach function for each specific lsp configuration
-vim.cmd([[
-    autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
-    autocmd BufWritePre *.ex,*.exs,*.eex,*.leex,*.sface,mix.lock lua vim.lsp.buf.formatting_sync(nil, 100)
-]])
-
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}') -- disabled in visual mode

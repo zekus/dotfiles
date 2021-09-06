@@ -14,9 +14,9 @@ require 'plugins.nvim-autopairs'
 require 'plugins.nvim-treesitter'
 require 'plugins.telescope'
 require 'plugins.vim-test'
+require 'plugins.null-ls'
 
 -- lsp
 require 'lsp'
-require 'lsp.efm-ls'
 require 'lsp.elixir-ls'
 require 'lsp.lua-ls'

@@ -12,6 +12,7 @@ require('paq-nvim') {
   'kabouzeid/nvim-lspinstall';
   'glepnir/lspsaga.nvim';
   'folke/trouble.nvim';
+  'jose-elias-alvarez/null-ls.nvim';
 
   -- Autocomplete and Snippets
   'hrsh7th/nvim-compe';
