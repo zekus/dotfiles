@@ -36,6 +36,7 @@ brew "hugo"
 brew "imagemagick@6", link: true
 brew "jq"
 brew "libyaml"
+brew "marp-cli" # markdown presentation rendering
 brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
 #brew "neovim", args: ["HEAD"]
 brew "neovim"
