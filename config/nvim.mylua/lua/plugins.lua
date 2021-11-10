@@ -9,7 +9,7 @@ require('paq-nvim') {
 
   -- LSP
   'neovim/nvim-lspconfig';
-  'kabouzeid/nvim-lspinstall';
+  'williamboman/nvim-lsp-installer';
   'glepnir/lspsaga.nvim';
   'folke/trouble.nvim';
   'jose-elias-alvarez/null-ls.nvim';
