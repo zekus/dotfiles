@@ -41,3 +41,7 @@ vim.cmd('set colorcolumn=99999') -- fix indentline for now
 vim.cmd('set ts=2') -- Insert 2 spaces for a tab
 vim.cmd('set sw=2') -- Change the number of space characters inserted for indentation
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}') -- disabled in visual mode
+
+-- find the best place to put this
+vim.cmd("au BufWritePre *.ex,*.exs,*.eex,*.leex,*.sface,mix.lock set filetype=elixir")
+

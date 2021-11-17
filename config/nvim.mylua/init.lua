@@ -19,6 +19,3 @@ require 'plugins.null-ls'
 
 -- lsp
 require 'lsp'
-require 'lsp.elixir-ls'
-require 'lsp.lua-ls'
-require 'lsp.terraform-ls'
