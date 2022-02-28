@@ -25,7 +25,7 @@ alias gadd='git add .'
 alias gcm='git commit -am'
 alias gmr='git log --since="`date +%b` 1" --author=antonio --reverse'
 alias gpm='git push origin master'
-alias gp='git push'
+alias gp='git push -u origin HEAD'
 alias gpatch='git format-patch HEAD^ --stdout > patch.diff'
 alias gpull='git pull'
 alias greview="git diff master"

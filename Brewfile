@@ -3,16 +3,15 @@ tap "aws/tap"
 tap "chrokh/tap"
 tap "garden-io/garden"
 tap "hashicorp/tap"
-tap "getantibody/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "nextdns/tap"
 tap "versent/taps"
 tap "weaveworks/tap"
 tap "stripe/stripe-cli"
+tap "codefresh-io/cli"
 
 # Install the packages
 brew "openssl@1.1"
@@ -23,7 +22,7 @@ brew "automake"
 brew "bison"
 brew "certbot"
 brew "ctags"
-brew "wxmac"
+brew "wxwidgets"
 brew "fd"
 brew "fzf"
 brew "gcc"
@@ -33,13 +32,9 @@ brew "gpgme"
 brew "hey"
 brew "htop"
 brew "hugo"
-brew "imagemagick@6", link: true
 brew "jq"
 brew "libyaml"
 brew "marp-cli" # markdown presentation rendering
-brew "mysql@5.7", restart_service: true, link: true, conflicts_with: ["mysql"]
-#brew "neovim", args: ["HEAD"]
-brew "neovim"
 brew "netlify-cli"
 brew "pkg-config"
 brew "redis"
@@ -51,10 +46,20 @@ brew "tree"
 brew "wget"
 brew "zsh"
 brew "chrokh/tap/base16-manager"
-brew "getantibody/tap/antibody"
-brew "nextdns/tap/nextdns"
+brew "antibody"
 brew "speedtest-cli"
 brew "stripe/stripe-cli/stripe"
+brew "codefresh-io/cli/codefresh"
+
+# neovim and deps
+#brew "neovim", args: ["HEAD"]
+brew "neovim"
+brew "lua"
+brew "luarocks"
+brew "shellharden"
+brew "shellcheck"
+brew "shfmt"
+brew "stylua"
 
 # git
 brew "git"
@@ -100,7 +105,6 @@ brew "terraform-ls"
 cask "docker"
 cask "dropbox"
 cask "google-backup-and-sync"
-cask "iterm2"
 cask "keybase"
 cask "ngrok"
 cask "postman"
@@ -109,10 +113,13 @@ cask "spotify"
 cask "visual-studio-code"
 cask "virtualbox"
 cask "vlc"
-cask "wkhtmltopdf"
 cask "zoom"
 cask "rectangle"
 cask "maccy" # clipboard manager
+cask "kitty" # terminal
+cask "iterm2" # terminal
+cask "obsidian" # notes app
+cask "insomnia" # like Postman for APIs
 
 # Fonts
 cask "font-anonymice-nerd-font"

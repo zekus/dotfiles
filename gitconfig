@@ -31,7 +31,7 @@
   autosetupmerge = true
   autosetuprebase = always
 [push]
-  default = current
+	default = current
   followTags = true
 [rerere]
   enabled = 1
