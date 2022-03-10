@@ -10,7 +10,6 @@ local feedkey = function(key, mode)
 end
 
 cmp.setup({
-
 	snippet = {
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
@@ -52,12 +51,13 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "vsnip" }, -- For vsnip users.
-	}, {
+	},
+  {
 		{
 			name = "buffer",
 			option = {
-				indexing_interval = 50,
-				keyword_pattern = [[\k\+]],
+--				indexing_interval = 50,
+--				keyword_pattern = [[\k\+]],
 				get_bufnrs = function()
 					return vim.api.nvim_list_bufs()
 				end,
@@ -77,7 +77,8 @@ cmp.setup.cmdline("/", {
 cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({
 		{ name = "path" },
-	}, {
+	},
+  {
 		{ name = "cmdline" },
 	}),
 })
