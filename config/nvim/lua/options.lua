@@ -25,23 +25,20 @@ vim.opt.writebackup = false -- This is recommended by coc
 vim.opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.opt.hidden = true -- Required to keep multiple buffers open multiple buffers
 vim.opt.title = true
-vim.opt.titlestring="%<%F%=%l/%L - nvim"
+vim.opt.titlestring = "%<%F%=%l/%L - nvim"
 vim.opt.wrap = false
 vim.opt.cmdheight = 2 -- More space for displaying messages
 vim.opt.conceallevel = 0 -- So that I can see `` in markdown files
 vim.opt.updatetime = 300 -- Faster completion
 
-vim.cmd('set iskeyword+=-') -- treat dash separated words as a word text object"
-vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
-vim.cmd('set inccommand=split') -- Make substitution work in realtime
 TERMINAL = vim.fn.expand('$TERMINAL')
-vim.cmd('let &titleold="'..TERMINAL..'"')
-vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
-vim.cmd('set colorcolumn=99999') -- fix indentline for now
-vim.cmd('set ts=2') -- Insert 2 spaces for a tab
-vim.cmd('set sw=2') -- Change the number of space characters inserted for indentation
-vim.cmd('au TextYankPost * lua vim.highlight.on_yank {on_visual = false}') -- disabled in visual mode
 
--- find the best place to put this
-vim.cmd("au BufWritePre *.ex,*.exs,*.eex,*.leex,*.sface,mix.lock set filetype=elixir")
-
+vim.cmd [[set iskeyword+=-]] -- treat dash separated words as a word text object"
+vim.cmd [[set shortmess+=c]] -- Don't pass messages to |ins-completion-menu|.
+vim.cmd [[set inccommand=split]] -- Make substitution work in realtime
+vim.cmd [[let &titleold="'..TERMINAL..'"]]
+vim.cmd [[set whichwrap+=<,>,[,],h,l]] -- move to next line with theses keys
+vim.cmd [[set colorcolumn=99999]] -- fix indentline for now
+vim.cmd [[set ts=2]] -- Insert 2 spaces for a tab
+vim.cmd [[set sw=2]] -- Change the number of space characters inserted for indentation
+vim.cmd [[au TextYankPost * lua vim.highlight.on_yank {on_visual = false}]] -- disabled in visual mode

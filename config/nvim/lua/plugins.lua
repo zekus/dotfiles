@@ -11,6 +11,9 @@ require('paq') {
   'folke/trouble.nvim';
   'jose-elias-alvarez/null-ls.nvim';
 
+  -- Elixir
+  'mhanberg/elixir.nvim';
+
   -- Autocomplete
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-buffer';

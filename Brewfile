@@ -50,6 +50,7 @@ brew "antibody"
 brew "speedtest-cli"
 brew "stripe/stripe-cli/stripe"
 brew "codefresh-io/cli/codefresh"
+brew "protobuf" # to compile gRPC
 
 # neovim and deps
 #brew "neovim", args: ["HEAD"]
