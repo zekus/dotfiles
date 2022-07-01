@@ -41,7 +41,6 @@ brew "redis"
 brew "ripgrep"
 brew "telnet"
 brew "the_silver_searcher"
-brew "travis"
 brew "tree"
 brew "wget"
 brew "zsh"
@@ -93,6 +92,7 @@ cask "lens"
 
 # pair in the terminal
 brew "tmate"
+
 # replace SSH
 brew "mosh"
 
@@ -121,6 +121,7 @@ cask "kitty" # terminal
 cask "iterm2" # terminal
 cask "obsidian" # notes app
 cask "insomnia" # like Postman for APIs
+cask "raycast" # replaces Spotlight
 
 # Fonts
 cask "font-anonymice-nerd-font"

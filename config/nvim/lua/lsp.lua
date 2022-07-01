@@ -1,18 +1,10 @@
-local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.lsp.omnifunc")
-
-  -- Format on save
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
-  end
-end
+local Lsp = {}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 local options = {
-  on_attach = on_attach,
-  capabilities = capabilities,
+  on_attach = Lsp.on_attach,
+  capabilities = Lsp.capabilities,
 }
 
 require("nvim-lsp-installer").on_server_ready(function(server)
@@ -59,3 +51,16 @@ vim.lsp.protocol.CompletionItemKind = {
   "   (Operator)",
   "   (TypeParameter)",
 }
+
+Lsp.on_attach = function(client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.lsp.omnifunc")
+
+  -- Format on save
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+  end
+
+  require('cmp_nvim_lsp').update_capabilities(capabilities)
+end
+
+return Lsp

@@ -1,6 +1,7 @@
 vim.cmd [[au BufWritePre *.ex,*.exs,*.eex,*.leex,*.sface,mix.lock set filetype=elixir"]]
 
 local elixir = require("elixir")
+local lsp = require("lsp")
 
 local elixir_on_attach = function(client, bufnr)
   local map_opts = { buffer = true, noremap = true }
@@ -12,7 +13,7 @@ local elixir_on_attach = function(client, bufnr)
   vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", map_opts)
 
   -- run the global function defined in lsp.lua
-  return on_attach(client, bufnr)
+  return lsp.on_attach(client, bufnr)
 end
 
 elixir.setup({
@@ -26,5 +27,5 @@ elixir.setup({
   on_attach = elixir_on_attach,
 
   -- capabilities are defined in lsp.lua
-  capabilities = capabilities
+  capabilities = lsp.capabilities
 })
