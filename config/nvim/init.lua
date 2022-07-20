@@ -5,6 +5,7 @@ require 'mappings'
 
 -- lsp
 require 'lsp'
+require 'lsp.sumneko_lua'
 
 -- plugins
 require 'plugins'

@@ -6,8 +6,8 @@ require('paq') {
   'nvim-treesitter/playground';
 
   -- LSP
-  'neovim/nvim-lspconfig';
   'williamboman/nvim-lsp-installer';
+  'neovim/nvim-lspconfig';
   'folke/trouble.nvim';
   'jose-elias-alvarez/null-ls.nvim';
 
@@ -66,5 +66,5 @@ require('paq') {
   'lewis6991/gitsigns.nvim';
 
   -- Co-Pilot
-  'github/copilot.vim';
+  -- 'github/copilot.vim';
 }

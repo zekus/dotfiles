@@ -4,9 +4,6 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sb
 # fix the locale
 export LC_ALL=en_US.UTF-8
 
-# iterm2 integration
-#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 source <(antibody init)
 
 ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
@@ -17,6 +14,8 @@ antibody bundle "
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-completions
 
+  robbyrussell/oh-my-zsh path:plugins/asdf
+  robbyrussell/oh-my-zsh path:plugins/fzf
   robbyrussell/oh-my-zsh path:plugins/git
   robbyrussell/oh-my-zsh path:plugins/gitfast
   robbyrussell/oh-my-zsh path:plugins/git-extras
@@ -24,12 +23,14 @@ antibody bundle "
   robbyrussell/oh-my-zsh path:plugins/docker
   robbyrussell/oh-my-zsh path:plugins/brew
   robbyrussell/oh-my-zsh path:plugins/gem
-  robbyrussell/oh-my-zsh path:plugins/osx
   robbyrussell/oh-my-zsh path:plugins/mix
   robbyrussell/oh-my-zsh path:plugins/kubectl
 
   romkatv/powerlevel10k
 "
+
+# set the git log level for powerlevel10k
+GITSTATUS_LOG_LEVEL=DEBUG
 
 # Never know when you're gonna need to popd!
 setopt AUTO_PUSHD
@@ -71,8 +72,7 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# FZF autocompletion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# FZF autocompletion (partially setup via antibody)
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -85,9 +85,6 @@ export RUBY_GC_HEAP_FREE_SLOTS=200000
 
 # Elixir/Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
-
-# Universal runtime manager
-source $(brew --prefix asdf)/asdf.sh
 
 # Execute a command at every directory change
 chpwd() {

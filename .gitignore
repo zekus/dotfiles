@@ -14,3 +14,4 @@ vscode/extensions
 config/karabiner/automatic_backups
 config/stripe
 config/gh
+config/github-copilot/hosts.json

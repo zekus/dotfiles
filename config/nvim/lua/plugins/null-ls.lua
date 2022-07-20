@@ -1,13 +1,10 @@
 local null_ls = require("null-ls")
 
 local sources = {
-  null_ls.builtins.formatting.prettier.with({
-    filetypes = { "html", "yaml", "markdown" },
-  }),
+  null_ls.builtins.formatting.prettier,
   null_ls.builtins.formatting.shfmt.with({
     args = { "-i", "1", "-filename", "$FILENAME" },
   }),
-  null_ls.builtins.formatting.shellharden,
   null_ls.builtins.diagnostics.credo,
   null_ls.builtins.diagnostics.jsonlint,
   null_ls.builtins.diagnostics.selene,

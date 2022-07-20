@@ -7,21 +7,22 @@ local options = {
   capabilities = Lsp.capabilities,
 }
 
-require("nvim-lsp-installer").on_server_ready(function(server)
-  local status, custom_opts = pcall(require, string.format("lsp.%s", server.name))
-
-  -- if there is some custom configuration,
-  -- updates the default options
-  if status == true then
-    for k, v in pairs(custom_opts) do
-      options[k] = v
-    end
-  end
-
-  print(vim.inspect(options))
-
-  server:setup(options)
-end)
+require("nvim-lsp-installer").setup {}
+-- require("nvim-lsp-installer").on_server_ready(function(server)
+--   local status, custom_opts = pcall(require, string.format("lsp.%s", server.name))
+-- 
+--   -- if there is some custom configuration,
+--   -- updates the default options
+--   if status == true then
+--     for k, v in pairs(custom_opts) do
+--       options[k] = v
+--     end
+--   end
+-- 
+--   print(vim.inspect(options))
+-- 
+--   server:setup(options)
+-- end)
 
 -- symbols for autocomplete
 vim.lsp.protocol.CompletionItemKind = {
