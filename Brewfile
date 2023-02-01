@@ -44,12 +44,12 @@ brew "the_silver_searcher"
 brew "tree"
 brew "wget"
 brew "zsh"
-brew "chrokh/tap/base16-manager"
 brew "antibody"
 brew "speedtest-cli"
 brew "stripe/stripe-cli/stripe"
 brew "codefresh-io/cli/codefresh"
 brew "protobuf" # to compile gRPC
+brew "stow" # GNU stow to manage packages and symlinks -- check the man and info page
 
 # neovim and deps
 #brew "neovim", args: ["HEAD"]

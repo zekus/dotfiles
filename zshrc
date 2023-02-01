@@ -26,6 +26,8 @@ antibody bundle "
   robbyrussell/oh-my-zsh path:plugins/mix
   robbyrussell/oh-my-zsh path:plugins/kubectl
 
+  chriskempson/base16-shell
+
   romkatv/powerlevel10k
 "
 
@@ -50,10 +52,6 @@ DISABLE_AUTO_TITLE="true"
 COMPLETION_WAITING_DOTS="true"
 
 fpath=($HOME/.dotfiles/zsh/completions /usr/local/share/zsh/site-functions $fpath)
-
-# Base16-shell via base16-manager
-BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
-[ -n "$PS1" ] && [ ! -v VIM ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # Source my custom files after oh-my-zsh so I can override things.
 source $HOME/.dotfiles/zsh/aliases
@@ -93,3 +91,8 @@ chpwd() {
   # source custom aliases for the directory
   custom_aliases
 }
+[ -f ~/.fzf.colors ] && source ~/.fzf.colors
+
+# set the shell and vim colors via base16-shell
+base16_nord
+

@@ -6,7 +6,8 @@ require('paq') {
   'nvim-treesitter/playground';
 
   -- LSP
-  'williamboman/nvim-lsp-installer';
+  'williamboman/mason.nvim';
+  'williamboman/mason-lspconfig.nvim';
   'neovim/nvim-lspconfig';
   'folke/trouble.nvim';
   'jose-elias-alvarez/null-ls.nvim';
@@ -25,9 +26,14 @@ require('paq') {
 
   -- Utilities
   'windwp/nvim-autopairs';
+  'ThePrimeagen/harpoon'; -- better marks
+  'folke/which-key.nvim'; -- better marks
 
   -- Files tree
   'kyazdani42/nvim-tree.lua';
+
+  -- Expose the neovim history tree
+  'mbbill/undotree';
 
   -- Comments
   'terrortylor/nvim-comment';
@@ -41,10 +47,13 @@ require('paq') {
   -- Colors
   'kyazdani42/nvim-web-devicons';
   'norcalli/nvim-base16.lua';
+  'folke/tokyonight.nvim'; -- not base16
+  'ful1e5/onedark.nvim'; -- not base16
 
   -- Status line and bufferline
   'hoob3rt/lualine.nvim';
   'romgrk/barbar.nvim';
+  'SmiteshP/nvim-navic'; -- statusline/winbar component using lsp
 
   -- Code Testing
   'janko-m/vim-test';
@@ -58,12 +67,10 @@ require('paq') {
   -- Resize windows easily
   'jimsei/winresizer';
 
-  -- Elixir
-  'mhanberg/elixir.nvim';
-
   -- Git
   'samoshkin/vim-mergetool';
   'lewis6991/gitsigns.nvim';
+  'TimUntersberger/neogit';
 
   -- Co-Pilot
   -- 'github/copilot.vim';
