@@ -1,11 +1,7 @@
-ruby 2.7.1
 erlang 25.0
 elixir 1.13.4-otp-25
-python 3.8.4
 terraform 0.12.29
 yarn 1.22.5
-golang 1.14.6
-helm 2.17.0
 nodejs 17.1.0
 rebar 3.19.0
 terraform-docs 0.16.0

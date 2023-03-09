@@ -1,3 +1,5 @@
+# vi: ft=zsh
+
 function myip {
   curl ifconfig.me/ip
 }
@@ -55,4 +57,115 @@ function rrg {
 # custom aliases for a project
 function custom_aliases {
   [[ -r ./.aliases ]] && source ./.aliases
+}
+
+# Create a new directory and enter it
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+function git_current_branch() {
+  local ref
+  ref=$(command git symbolic-ref --quiet HEAD 2> /dev/null)
+  local ret=$?
+  if [[ $ret != 0 ]]; then
+    [[ $ret == 128 ]] && return  # no git repo.
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
+  fi
+  echo ${ref#refs/heads/}
+}
+
+# Install one or more versions of specified language
+# e.g. `vmi rust` # => fzf multimode, tab to mark, enter to install
+# if no plugin is supplied (e.g. `vmi<CR>`), fzf will list them for you
+asdf_i() {
+  local lang=${1}
+
+  if [[ ! $lang ]]; then
+    lang=$(asdf plugin-list | fzf)
+  fi
+
+  if [[ $lang ]]; then
+    local versions=$(asdf list-all $lang | fzf --tac --no-sort --multi)
+    if [[ $versions ]]; then
+      for version in $(echo $versions);
+      do; asdf install $lang $version; done;
+    fi
+  fi
+}
+
+# Remove one or more versions of specified language
+# e.g. `vmi rust` # => fzf multimode, tab to mark, enter to remove
+# if no plugin is supplied (e.g. `vmi<CR>`), fzf will list them for you
+# Mnemonic [V]ersion [M]anager [C]lean
+asdf_uni() {
+  local lang=${1}
+
+  if [[ ! $lang ]]; then
+    lang=$(asdf plugin-list | fzf)
+  fi
+
+  if [[ $lang ]]; then
+    local versions=$(asdf list $lang | fzf -m)
+    if [[ $versions ]]; then
+      for version in $(echo $versions);
+      do; asdf uninstall $lang $version; done;
+    fi
+  fi
+}
+
+# Install or open the webpage for the selected application
+# using brew cask search as input source
+# and display a info quickview window for the currently marked application
+brew_i() {
+    local token
+    token=$(brew search "$1" | fzf-tmux -p -w 90% -h 90% --query="$1" +m --preview 'brew info {}')
+
+    if [ "x$token" != "x" ]
+    then
+        if [[ "$token" == *"homebrew-cask"* ]]; then
+            brew install --cask $token
+        else
+            brew install $token
+        fi
+    fi
+}
+
+# Uninstall or open the webpage for the selected application
+# using brew list as input source (all brew cask installed applications)
+# and display a info quickview window for the currently marked application
+brew_uni() {
+    local token
+    token=$(brew list | fzf-tmux -p -w 90% -h 90% --query="$1" +m --preview 'brew info {}')
+
+    if [ "x$token" != "x" ]
+    then
+        if [[ "$token" == *"homebrew-cask"* ]]; then
+            brew uninstall --cask $token
+        else
+            brew uninstall $token
+        fi
+    fi
+}
+
+# Execute a command at every directory change
+chpwd() {
+  # Show contents of directory after cd-ing into it
+  # ls -lrthG
+  # source custom aliases for the directory
+  custom_aliases
 }

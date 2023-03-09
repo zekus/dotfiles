@@ -49,6 +49,8 @@ require('paq') {
   'norcalli/nvim-base16.lua';
   'folke/tokyonight.nvim'; -- not base16
   'ful1e5/onedark.nvim'; -- not base16
+  'rose-pine/neovim'; -- not base16
+
 
   -- Status line and bufferline
   'hoob3rt/lualine.nvim';

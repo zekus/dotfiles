@@ -22,6 +22,7 @@ brew "automake"
 brew "bison"
 brew "certbot"
 brew "ctags"
+brew "bash-completion"
 brew "wxwidgets"
 brew "fd"
 brew "fzf"
@@ -77,10 +78,7 @@ brew "mas"
 # aws tools
 brew "aws-iam-authenticator"
 brew "awscli"
-brew "versent/taps/saml2aws"
 brew "aws/tap/copilot-cli"
-## to model DynamoDB
-cask "nosql-workbench-for-amazon-dynamodb"
 
 # kubernetes tools
 brew "k9s"
@@ -105,14 +103,12 @@ brew "terraform-ls"
 # Casks UI apps
 cask "docker"
 cask "dropbox"
-cask "google-backup-and-sync"
 cask "keybase"
 cask "ngrok"
 cask "postman"
 cask "skype"
 cask "spotify"
 cask "visual-studio-code"
-cask "virtualbox"
 cask "vlc"
 cask "zoom"
 cask "rectangle"
@@ -122,6 +118,7 @@ cask "iterm2" # terminal
 cask "obsidian" # notes app
 cask "insomnia" # like Postman for APIs
 cask "raycast" # replaces Spotlight
+cask "notion"
 
 # Fonts
 cask "font-anonymice-nerd-font"

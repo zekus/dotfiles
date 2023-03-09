@@ -1,3 +1,5 @@
+# vi: ft=zsh
+
 # Handle the fact that this file will be used with multiple OSs
 platform=`uname`
 if [[ $platform == 'Linux' ]]; then
@@ -6,7 +8,38 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+alias gb="git for-each-ref --sort='-committerdate' --format='%(committerdate) %(refname)%09' refs/heads | sed -e 's-refs/heads/--' | awk -F ' ' '{print \$2;print \$3; print \$4; print \$5; print \$7}' | xargs -n5"
+
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+alias cc=" clear"
+alias hist="history"
+
+alias font='echo -e "\nnormal flower\n\e[1mboldflower\e[0m\n\e[3mitalic flower\e[0m\n\e[3m\e[1mbold italic flower\e[0m\n\e[4munderline flower\e[0m\n\e[9mstrikethrough flower\e[0m\n\e[4:3mcurly underline flower\e[4:0m\n\e[4:3\e[58:mcurlyunderlinewithcolor flower\e[59m\e[4:0m"'
+alias color="$HOME/.dotfiles/.scripts/test_color.sh"
+
+alias lg="lazygit"
+alias ld="lazydocker"
+#  alias gco="git branch | fzf | xargs -n1 git checkout"
+
+alias a="alias | rg"
+
+alias app='fd ".app" /System/Library/CoreServices /System/Applications /Applications /System/Applications/Utilities --max-depth 1 | fzf | xargs -I {} open "{}"'
+
+alias ls='exa --icons'
+alias la='exa -a --icons'
+alias lt='exa --tree --icons'
+
+alias vim=nvim
+alias vi=nvim
+alias nvim_startuptime="nvim --startuptime h -c ':q'; cat h; rm -rf h"
+
+
 alias aliases='vim ~/.dotfiles/zsh/aliases'
+alias so='source ~/.dotfiles/zsh/aliases'
+
 alias annotate="annotate --exclude tests,fixtures --show-indexes --simple-indexes"
 alias bake='bundle exec rake'
 alias be='bundle exec'
@@ -14,13 +47,11 @@ alias bi='bundle install'
 alias be='bundle exec'
 alias bu='bundle update'
 alias bunbang='bundle install && !!'
+
 alias d='cd ~/.dotfiles'
+
 alias drop='cd ~/Dropbox'
-alias dmakemigrations="./manage.py makemigrations"
-alias cucumber='bundle exec cucumber'
-alias cpid='find . -iname \*pid -exec rm {} +'
-#alias irb='pry'
-alias migrate="rake db:migrate db:test:clone"
+
 alias gadd='git add .'
 alias gcm='git commit -am'
 alias gmr='git log --since="`date +%b` 1" --author=antonio --reverse'
@@ -30,32 +61,14 @@ alias gpatch='git format-patch HEAD^ --stdout > patch.diff'
 alias gpull='git pull'
 alias greview="git diff master"
 alias gs="git status"
-alias killruby='killall -9 ruby'
+
 alias k="kubectl"
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace '
 alias remore='!! | more'
-alias reguard='killall -9 ruby ; guard'
-alias rerake='!! && rake'
+
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules *'
 alias retagwithcoffee='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules * && coffeetags -R -f >> tags'
 alias retagwithpython='ctags -R --exclude=.svn --exclude=.git --exclude=log --exclude=tmp --exclude=node_modules * --python-kinds=-i'
-alias rc='rails console'
-#alias rspec='bundle exec rspec'
-alias rst="touch tmp/restart.txt"
-alias so='source ~/.dotfiles/zsh/aliases'
-alias vi='nvim'
-alias vim='nvim'
-
-# helm
-alias helm2=/usr/local/Cellar/helm@2/2.16.6/bin/helm
-alias tiller2=/usr/local/Cellar/helm@2/2.16.6/bin/tiller
-
-# Foreman
-if [ -f ./Procfile.dev ]; then
-  alias fstart='foreman start -f Procfile.dev'
-else
-  alias fstart='foreman start'
-fi
 
 # Redis
 alias redis-start='redis-server /usr/local/etc/redis.conf'
@@ -79,7 +92,6 @@ function fn_dgetin() {
 function fn_dclo() {
    docker-compose logs -f $1
 }
-
 function dm_unlink() {
   sudo bash -c "sed -E '/[[:space:]]+$1\.dev/d' /etc/hosts > /etc/hosts.tmp && mv /etc/hosts.tmp /etc/hosts"
 }
