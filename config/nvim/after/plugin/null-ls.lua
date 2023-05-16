@@ -3,7 +3,13 @@ local on_attach = require("lsp").on_attach
 local capabilities = require("lsp").capabilities
 
 local sources = {
-  null_ls.builtins.formatting.prettier,
+  null_ls.builtins.formatting.prettierd.with({
+    filetypes = {
+      "css", "json", "jsonc", "javascript", "typescript",
+      "javascript.glimmer", "typescript.glimmer",
+      "handlebars", "markdown"
+    }
+  }),
   null_ls.builtins.formatting.shfmt.with({
     args = { "-i", "1", "-filename", "$FILENAME" },
   }),

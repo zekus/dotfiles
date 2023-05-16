@@ -60,23 +60,22 @@ require("mason").setup {
 }
 
 require("mason-lspconfig").setup {
-  ensure_installed = { "sumneko_lua" },
+  ensure_installed = { "lua_ls" },
 }
 
 local lspconfig = require("lspconfig")
 local runtime_path = vim.split(package.path, ";", {})
+
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require("mason-lspconfig").setup_handlers({
-
   function(server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup {
       on_attach = Lsp.on_attach,
       capabilities = Lsp.capabilities
     }
   end,
-
   -- Next, you can provide targeted overrides for specific servers.
 
   ["elixirls"] = function()
@@ -92,8 +91,8 @@ require("mason-lspconfig").setup_handlers({
     }
   end,
 
-  ["sumneko_lua"] = function()
-    lspconfig.sumneko_lua.setup {
+  ["lua_ls"] = function()
+    lspconfig.lsp_ls.setup {
       on_attach = Lsp.on_attach,
       capabilities = Lsp.capabilities,
       settings = {
