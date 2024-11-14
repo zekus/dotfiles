@@ -11,5 +11,3 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # for gpg
 export GPG_TTY=$TTY
-# for last pass no never end session after login
-export LPASS_AGENT_TIMEOUT=0

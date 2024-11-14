@@ -72,8 +72,9 @@ require('paq') {
   -- Git
   'samoshkin/vim-mergetool';
   'lewis6991/gitsigns.nvim';
-  'TimUntersberger/neogit';
+  'NeogitOrg/neogit';
 
   -- Co-Pilot
   -- 'github/copilot.vim';
+  -- 'Exafunction/codeium.vim';
 }

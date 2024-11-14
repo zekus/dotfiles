@@ -28,9 +28,9 @@ alias a="alias | rg"
 
 alias app='fd ".app" /System/Library/CoreServices /System/Applications /Applications /System/Applications/Utilities --max-depth 1 | fzf | xargs -I {} open "{}"'
 
-alias ls='exa --icons'
-alias la='exa -a --icons'
-alias lt='exa --tree --icons'
+alias ls='eza --icons'
+alias la='eza -a --icons'
+alias lt='eza --tree --icons'
 
 alias vim=nvim
 alias vi=nvim
@@ -52,6 +52,7 @@ alias d='cd ~/.dotfiles'
 
 alias drop='cd ~/Dropbox'
 
+## Git
 alias gadd='git add .'
 alias gcm='git commit -am'
 alias gmr='git log --since="`date +%b` 1" --author=antonio --reverse'

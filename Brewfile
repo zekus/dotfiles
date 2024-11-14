@@ -4,10 +4,8 @@ tap "chrokh/tap"
 tap "garden-io/garden"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "versent/taps"
 tap "weaveworks/tap"
 tap "stripe/stripe-cli"
@@ -70,7 +68,7 @@ brew "gh"
 brew "hub"
 
 # a replacement for `ls`
-brew "exa"
+brew "eza"
 
 # install applications from the app store
 brew "mas"
@@ -101,7 +99,7 @@ brew "asdf"
 brew "terraform-ls"
 
 # Casks UI apps
-cask "docker"
+# cask "docker" - Podman is supposed to install the docker binaries
 cask "dropbox"
 cask "keybase"
 cask "ngrok"
@@ -115,10 +113,12 @@ cask "rectangle"
 cask "maccy" # clipboard manager
 cask "kitty" # terminal
 cask "iterm2" # terminal
+cask "alacritty" # terminal
 cask "obsidian" # notes app
 cask "insomnia" # like Postman for APIs
 cask "raycast" # replaces Spotlight
 cask "notion"
+cask "youtube-music"
 
 # Fonts
 cask "font-anonymice-nerd-font"

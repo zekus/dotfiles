@@ -1,6 +1,7 @@
 [user]
   name = Antonio Lorusso
   email = antonio.lorusso@gmail.com
+	signingkey = 3B6030A7F97C0240
 [alias]
   co = checkout
   ci = commit
@@ -57,3 +58,7 @@
   helper = osxkeychain
 #[interactive]
 #  diffFilter = delta --color-only
+[commit]
+	gpgsign = true
+[maintenance]
+	repo = /Users/antoniolorusso/projects/Findhotel/bofh-api

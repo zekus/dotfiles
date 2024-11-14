@@ -1,11 +1,11 @@
 # vi: ft=zsh
 
 # go
-export GOROOT="$HOME/.asdf/installs/golang/1.19/go"
-export GOPATH="$HOME/me/go"
-export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
-alias gop="cd $GOPATH"
-alias gor="cd $GOROOT"
+#export GOROOT="$HOME/.asdf/installs/golang/1.19/go"
+#export GOPATH="$HOME/me/go"
+#export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+#alias gop="cd $GOPATH"
+#alias gor="cd $GOROOT"
 
 # Ruby
 export RUBY_GC_MALLOC_LIMIT=90000000
