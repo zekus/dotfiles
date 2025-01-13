@@ -17,3 +17,4 @@ config/gh
 config/github-copilot/hosts.json
 config/grammarly-languageserver
 config/zed/.tmp*
+config/github-copilot/apps.json

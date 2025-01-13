@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "keybindings": [
+    {
+      "key": "alt+space alt+space",
+      "command": "workbench.action.quickOpen",
+      "when": "true"
+    },
+    {
+      "key": "alt+space r k",
+      "command": "workbench.action.reloadWindow",
+      "when": "true"
+    },
+    {
+      "key": "alt+space f f",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "mix format ${file}\n" },
+      "when": "editorLangId == elixir"
+    },
+    {
+      "key": "alt+space t f",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "mix test ${file}\n" },
+      "when": "editorLangId == elixir"
+    },
+    {
+      "key": "alt+space t a",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "mix test\n" },
+      "when": "editorLangId == elixir"
+    },
+    {
+      "key": "alt+space c c",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "mix credo\n" },
+      "when": "editorLangId == elixir"
+    },
+    {
+      "key": "alt+space c d",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "mix dialyzer\n" },
+      "when": "editorLangId == elixir"
+    },
+    {
+      "key": "alt+space i x",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "iex -S mix\n" },
+      "when": "editorLangId == elixir"
+    },
+    {
+      "key": "alt+space p s",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "mix phx.server\n" },
+      "when": "editorLangId == elixir"
+    },
+    {
+      "key": "alt+space c b",
+      "command": "workbench.action.terminal.sendSequence",
+      "args": { "text": "mix do clean, compile\n" },
+      "when": "editorLangId == elixir"
+    }
+  ]
+} 

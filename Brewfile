@@ -10,12 +10,13 @@ tap "versent/taps"
 tap "weaveworks/tap"
 tap "stripe/stripe-cli"
 tap "codefresh-io/cli"
+tap "nextdns/tap"
+tap "th-ch/youtube-music"
 
 # Install the packages
 brew "openssl@1.1"
 brew "gdbm"
 brew "readline"
-brew "asciinema"
 brew "automake"
 brew "bison"
 brew "certbot"
@@ -30,11 +31,9 @@ brew "gnupg"
 brew "gpgme"
 brew "hey"
 brew "htop"
-brew "hugo"
 brew "jq"
 brew "libyaml"
 brew "marp-cli" # markdown presentation rendering
-brew "netlify-cli"
 brew "pkg-config"
 brew "redis"
 brew "ripgrep"
@@ -43,12 +42,17 @@ brew "the_silver_searcher"
 brew "tree"
 brew "wget"
 brew "zsh"
-brew "antibody"
 brew "speedtest-cli"
 brew "stripe/stripe-cli/stripe"
-brew "codefresh-io/cli/codefresh"
-brew "protobuf" # to compile gRPC
-brew "stow" # GNU stow to manage packages and symlinks -- check the man and info page
+brew "localstack"
+brew "awscli-local"
+brew "starship" # terminal bar
+brew "prettier"
+brew "nextdns"
+brew "rsync"
+brew "neofetch" # utility to print your terminal and computer config
+brew "pngpaste"
+brew "lazygit"
 
 # neovim and deps
 #brew "neovim", args: ["HEAD"]
@@ -78,20 +82,6 @@ brew "aws-iam-authenticator"
 brew "awscli"
 brew "aws/tap/copilot-cli"
 
-# kubernetes tools
-brew "k9s"
-brew "krew"
-brew "kubectx"
-brew "weaveworks/tap/eksctl"
-brew "garden-io/garden/garden-cli"
-cask "lens"
-
-# pair in the terminal
-brew "tmate"
-
-# replace SSH
-brew "mosh"
-
 # Manage multiple runtime versions with a single CLI tool
 brew "asdf"
 
@@ -99,26 +89,38 @@ brew "asdf"
 brew "terraform-ls"
 
 # Casks UI apps
-# cask "docker" - Podman is supposed to install the docker binaries
+# cask "docker" - orbstack is supposed to install the docker binaries
 cask "dropbox"
+cask "dropbox-capture"
 cask "keybase"
-cask "ngrok"
 cask "postman"
-cask "skype"
-cask "spotify"
-cask "visual-studio-code"
+cask "insomnia" # like Postman for APIs
 cask "vlc"
 cask "zoom"
 cask "rectangle"
 cask "maccy" # clipboard manager
-cask "kitty" # terminal
-cask "iterm2" # terminal
-cask "alacritty" # terminal
 cask "obsidian" # notes app
-cask "insomnia" # like Postman for APIs
-cask "raycast" # replaces Spotlight
 cask "notion"
+cask "notion-calendar"
 cask "youtube-music"
+cask "spotify"
+cask "calibre"
+cask "ghostty" # terminal
+cask "warp" # AI terminal
+cask "orbstack" # docker manager
+cask "livebook" # elixir livebook
+cask "android-platform-tools"
+
+# AI tools
+cask "lm-studio"
+cask "anythingllm"
+cask "claude"
+cask "chatgpt"
+
+# Editors
+cask "windsurf"
+cask "cursor"
+cask "zed"
 
 # Fonts
 cask "font-anonymice-nerd-font"
@@ -128,3 +130,4 @@ cask "font-caskaydia-cove-nerd-font"
 cask "font-agave-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-inconsolata-nerd-font"
+cask "font-meslo-lg-nerd-font"

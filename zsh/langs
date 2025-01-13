@@ -1,5 +1,12 @@
 # vi: ft=zsh
 
+# ASDF
+# even if it is installed by homebrew, and configured by zi and ohmyzsh,
+# we need to source it here to make it work with non interactive shells AI agents use
+# like Cursor, Windsurf, Zed, Copilot, etc.
+. "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+export PATH="$HOME/.asdf/shims:$PATH"
+
 # go
 #export GOROOT="$HOME/.asdf/installs/golang/1.19/go"
 #export GOPATH="$HOME/me/go"
