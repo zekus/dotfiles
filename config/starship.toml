@@ -1,3 +1,6 @@
+# Increase command timeout to handle slow asdf shims
+command_timeout = 1000
+
 format = """
 $username\
 $directory\
@@ -62,7 +65,7 @@ untracked = '[?\($count\)](bg:overlay fg:gold)'
 stashed = '[\$](bg:overlay fg:iris)'
 modified = '[!\($count\)](bg:overlay fg:gold)'
 renamed = '[»\($count\)](bg:overlay fg:iris)'
-deleted = '[✘\($count\)](style)'
+deleted = '[✘\($count\)](bg:overlay fg:love)'
 staged = '[++\($count\)](bg:overlay fg:gold)'
 ahead = '[⇡\(${count}\)](bg:overlay fg:foam)'
 diverged = '⇕[\[](bg:overlay fg:iris)[⇡\(${ahead_count}\)](bg:overlay fg:foam)[⇣\(${behind_count}\)](bg:overlay fg:rose)[\]](bg:overlay fg:iris)'
@@ -92,9 +95,13 @@ symbol = " "
 
 [elixir]
 style = "bg:overlay fg:pine"
-format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
 disabled = false
-symbol = " "
+symbol = " "
+# Only show Elixir version when in an Elixir project
+detect_files = ["mix.exs"]
+detect_extensions = ["ex", "exs"]
+detect_folders = []
 
 [elm]
 style = "bg:overlay fg:pine"
@@ -128,9 +135,13 @@ symbol = " "
 
 [nodejs]
 style = "bg:overlay fg:pine"
-format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
 disabled = false
 symbol = "󰎙 "
+# Only show Node.js version when in a Node.js project
+detect_files = ["package.json", ".nvmrc", ".node-version"]
+detect_extensions = ["js", "mjs", "cjs", "ts", "tsx"]
+detect_folders = ["node_modules"]
 
 [nim]
 style = "bg:overlay fg:pine"
@@ -152,9 +163,13 @@ symbol = " "
 
 [python]
 style = "bg:overlay fg:pine"
-format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
+format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) "
 disabled = false
-symbol = ' '
+symbol = ' '
+# Only show Python version when in a Python project
+detect_files = ["requirements.txt", "pyproject.toml", "Pipfile", "setup.py", "__init__.py", ".python-version"]
+detect_extensions = ["py"]
+detect_folders = []
 
 [conda]
 style = "bg:overlay fg:pine"

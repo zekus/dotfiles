@@ -18,3 +18,24 @@ config/github-copilot/hosts.json
 config/grammarly-languageserver
 config/zed/.tmp*
 config/github-copilot/apps.json
+
+# Sensitive application configs with API tokens
+config/zed/settings.json
+config/zed/*_backup.json
+config/zed/settings_backup.json
+
+# Database and cache files
+config/zed/embeddings/
+config/zed/prompts/prompts-library-db*/
+*.mdb
+*.sqlite
+*.db
+*-shm
+*-wal
+
+# Lock files (for dotfiles repos)
+Brewfile.lock.json
+.claude/settings.local.json
+config/nvim/.expert
+config/nvim.bak/nvim
+config/qBittorrent

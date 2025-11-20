@@ -1,1 +1,4 @@
-theme = dark:rose-pine-moon,light:rose-pine-dawn
+theme = dark:Rose Pine,light:Rose Pine Dawn
+macos-option-as-alt = true
+keybind = shift+enter=text:\n
+font-family = CaskaydiaCove Nerd Font Mono

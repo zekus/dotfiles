@@ -1,0 +1,62 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "share": "disabled", // Disables session sharing for privacy
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "$CONTEXT7_API_KEY" // Use environment variable for security
+      ],
+      "enabled": true
+    },
+    "github": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_PERSONAL_ACCESS_TOKEN" // Use environment variable
+      },
+      "enabled": true
+    },
+    "shortcut": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@shortcut/mcp"
+      ],
+      "environment": {
+        "SHORTCUT_API_TOKEN": "$SHORTCUT_API_TOKEN" // Use environment variable
+      },
+      "enabled": true
+    },
+    "tidewave": {
+      "type": "local",
+      "command": [
+        "/Users/antoniolorusso/.local/bin/mcp-proxy",
+        "http://localhost:4000/tidewave/mcp"
+      ],
+      "environment": {},
+      "enabled": true
+    },
+    "brave-search": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-brave-search"
+      ],
+      "environment": {
+        "BRAVE_API_KEY": "$BRAVE_API_KEY" // Use environment variable
+      },
+      "enabled": true
+    }
+  }
+}

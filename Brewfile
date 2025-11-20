@@ -4,8 +4,6 @@ tap "chrokh/tap"
 tap "garden-io/garden"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "versent/taps"
 tap "weaveworks/tap"
 tap "stripe/stripe-cli"
@@ -80,7 +78,6 @@ brew "mas"
 # aws tools
 brew "aws-iam-authenticator"
 brew "awscli"
-brew "aws/tap/copilot-cli"
 
 # Manage multiple runtime versions with a single CLI tool
 brew "asdf"
@@ -110,12 +107,14 @@ cask "warp" # AI terminal
 cask "orbstack" # docker manager
 cask "livebook" # elixir livebook
 cask "android-platform-tools"
+cask "yubico-yubikey-manager"
 
 # AI tools
 cask "lm-studio"
 cask "anythingllm"
 cask "claude"
 cask "chatgpt"
+brew "sst/tap/opencode"
 
 # Editors
 cask "windsurf"
