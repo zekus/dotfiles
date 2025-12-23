@@ -88,26 +88,24 @@ brew "terraform-ls"
 # Casks UI apps
 # cask "docker" - orbstack is supposed to install the docker binaries
 cask "dropbox"
-cask "dropbox-capture"
 cask "keybase"
 cask "postman"
-cask "insomnia" # like Postman for APIs
 cask "vlc"
 cask "zoom"
-cask "rectangle"
 cask "maccy" # clipboard manager
-cask "obsidian" # notes app
 cask "notion"
 cask "notion-calendar"
 cask "youtube-music"
 cask "spotify"
 cask "calibre"
 cask "ghostty" # terminal
-cask "warp" # AI terminal
 cask "orbstack" # docker manager
 cask "livebook" # elixir livebook
 cask "android-platform-tools"
 cask "yubico-yubikey-manager"
+cask "bitwarden"
+brew "bitwarden-cli"
+cask "1password"
 
 # AI tools
 cask "lm-studio"
@@ -115,10 +113,11 @@ cask "anythingllm"
 cask "claude"
 cask "chatgpt"
 brew "sst/tap/opencode"
+brew "codex"
+brew "claude-code"
+brew "gemini-cli"
 
 # Editors
-cask "windsurf"
-cask "cursor"
 cask "zed"
 
 # Fonts

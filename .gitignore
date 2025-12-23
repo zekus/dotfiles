@@ -39,3 +39,6 @@ Brewfile.lock.json
 config/nvim/.expert
 config/nvim.bak/nvim
 config/qBittorrent
+
+# Bitwarden secrets (contains API keys and tokens)
+zsh/bitwarden-secrets.zsh

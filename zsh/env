@@ -11,3 +11,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 # for gpg
 export GPG_TTY=$TTY
+
+# Load Bitwarden secrets for shell and Claude Code
+[ -f ~/.zsh/bitwarden-secrets.zsh ] && source ~/.zsh/bitwarden-secrets.zsh
