@@ -88,41 +88,40 @@ function git_current_branch() {
   echo ${ref#refs/heads/}
 }
 
-# Install one or more versions of specified language
-# e.g. `vmi rust` # => fzf multimode, tab to mark, enter to install
-# if no plugin is supplied (e.g. `vmi<CR>`), fzf will list them for you
-asdf_i() {
+# Install one or more versions of specified language using mise
+# e.g. `mise_i rust` # => fzf multimode, tab to mark, enter to install
+# if no plugin is supplied (e.g. `mise_i<CR>`), fzf will list them for you
+mise_i() {
   local lang=${1}
 
   if [[ ! $lang ]]; then
-    lang=$(asdf plugin-list | fzf)
+    lang=$(mise plugins ls --core --user | fzf)
   fi
 
   if [[ $lang ]]; then
-    local versions=$(asdf list-all $lang | fzf --tac --no-sort --multi)
+    local versions=$(mise ls-remote $lang | fzf --tac --no-sort --multi)
     if [[ $versions ]]; then
       for version in $(echo $versions);
-      do; asdf install $lang $version; done;
+      do; mise install $lang@$version; done;
     fi
   fi
 }
 
-# Remove one or more versions of specified language
-# e.g. `vmi rust` # => fzf multimode, tab to mark, enter to remove
-# if no plugin is supplied (e.g. `vmi<CR>`), fzf will list them for you
-# Mnemonic [V]ersion [M]anager [C]lean
-asdf_uni() {
+# Remove one or more versions of specified language using mise
+# e.g. `mise_uni rust` # => fzf multimode, tab to mark, enter to remove
+# if no plugin is supplied (e.g. `mise_uni<CR>`), fzf will list them for you
+mise_uni() {
   local lang=${1}
 
   if [[ ! $lang ]]; then
-    lang=$(asdf plugin-list | fzf)
+    lang=$(mise plugins ls --core --user | fzf)
   fi
 
   if [[ $lang ]]; then
-    local versions=$(asdf list $lang | fzf -m)
+    local versions=$(mise ls --installed $lang | awk '{print $2}' | fzf -m)
     if [[ $versions ]]; then
       for version in $(echo $versions);
-      do; asdf uninstall $lang $version; done;
+      do; mise uninstall $lang@$version; done;
     fi
   fi
 }

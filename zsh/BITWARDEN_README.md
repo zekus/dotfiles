@@ -8,11 +8,16 @@ Automated API key/token management for Claude Code and shell environments.
 # 1. Run setup script
 ~/.dotfiles/.scripts/setup_bitwarden.sh
 
-# 2. Create "Claude" secure note in Bitwarden
-#    https://vault.bitwarden.com
-#    Add hidden fields: ANTHROPIC_API_KEY, SHORTCUT_API_TOKEN, etc.
+# 2. Create folder and secure note in Bitwarden (https://vault.bitwarden.com)
+#    - Create a folder named "CLI" (or similar)
+#    - Create secure note named "Claude" inside that folder
+#    - Add hidden fields: ANTHROPIC_API_KEY, SHORTCUT_API_TOKEN, etc.
 
-# 3. Test
+# 3. Get your folder ID and configure the script
+bw list folders | jq '.[] | select(.name == "CLI") | .id'
+# Edit ~/.zsh/bitwarden-secrets.zsh and set secrets_folder_id
+
+# 4. Test
 source ~/.zshrc
 echo $ANTHROPIC_API_KEY
 ```
@@ -22,18 +27,22 @@ echo $ANTHROPIC_API_KEY
 1. **Shell startup** → loads `zsh/bitwarden-secrets.zsh`
 2. **Retrieves** master password from macOS Keychain
 3. **Unlocks** Bitwarden vault
-4. **Extracts** secrets from configured notes
-5. **Exports** as environment variables
+4. **Searches** configured folder for secure notes (by folder ID + type)
+5. **Extracts** hidden fields from matching notes
+6. **Exports** as environment variables
 
 ## Structure
 
 **Bitwarden Vault:**
 ```
-Secure Note: "Claude"
-├── Hidden Field: ANTHROPIC_API_KEY = sk-ant-xxxxx
-├── Hidden Field: SHORTCUT_API_TOKEN = xxxx-xxxx
-└── Hidden Field: GITHUB_TOKEN = ghp_xxxxx
+Folder: "CLI"
+└── Secure Note: "Claude"
+    ├── Hidden Field: ANTHROPIC_API_KEY = sk-ant-xxxxx
+    ├── Hidden Field: SHORTCUT_API_TOKEN = xxxx-xxxx
+    └── Hidden Field: GITHUB_TOKEN = ghp_xxxxx
 ```
+
+Notes are filtered by folder ID to avoid ambiguity with other vault items.
 
 **Dotfiles:**
 ```
@@ -50,7 +59,7 @@ zsh/bitwarden-secrets.zsh.template  # Template for new machines
 3. `bw-reload`
 
 ### Create New Secret Group
-1. Create secure note in Bitwarden (e.g., "AWS")
+1. Create secure note in Bitwarden (e.g., "AWS") **inside the CLI folder**
 2. Add hidden fields
 3. Edit `zsh/bitwarden-secrets.zsh`:
    ```bash
@@ -79,6 +88,7 @@ read -s BW_PASS && \
 | `bw-lock` | Lock vault and clear session |
 | `bw sync` | Sync with Bitwarden server |
 | `bw status` | Check vault status |
+| `bw list folders \| jq '...'` | Find folder IDs |
 
 ## Troubleshooting
 
@@ -95,9 +105,18 @@ bw unlock              # Manual unlock
 # Copy and run the export command
 ```
 
-**Test secret retrieval:**
+**Test folder + note retrieval:**
 ```bash
-bw get item "Claude" | jq '.fields[] | "\(.name) = \(.value)"'
+# List items in your secrets folder (replace with your folder ID)
+bw list items --folderid "YOUR_FOLDER_ID" | jq '[.[] | {name, type}]'
+
+# Get specific note fields (no values shown)
+bw list items --folderid "YOUR_FOLDER_ID" --search "Claude" | jq '.[0].fields[].name'
+```
+
+**Find folder ID:**
+```bash
+bw list folders | jq '.[] | {name, id}'
 ```
 
 ## Security

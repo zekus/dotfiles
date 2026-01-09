@@ -9,6 +9,9 @@ source $HOME/.zsh/functions
 source $HOME/.zsh/aliases
 source $HOME/zsh/aliases
 
+# Load Bitwarden secrets if available
+[[ -f $HOME/.zsh/bitwarden-secrets.zsh ]] && source $HOME/.zsh/bitwarden-secrets.zsh
+
 # Oh-My_Zsh https://wiki.zshell.dev
 zi is-snippet wait lucid for \
     atload"unalias grv g" \
@@ -22,12 +25,8 @@ zi is-snippet wait lucid for \
     if'[[ "$OSTYPE" = *-gnu ]]' \
   OMZP::gnu-utils
 
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-# asdf configuration
-export PATH="$ASDF_DATA_DIR/shims:$PATH"    
-fpath=(/opt/homebrew/opt/asdf/share/zsh/site-functions $fpath)
-autoload -Uz compinit && compinit
+# mise - runtime version manager (reads .tool-versions)
+eval "$(mise activate zsh)"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

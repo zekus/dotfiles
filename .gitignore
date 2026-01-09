@@ -42,3 +42,4 @@ config/qBittorrent
 
 # Bitwarden secrets (contains API keys and tokens)
 zsh/bitwarden-secrets.zsh
+tools/.Brewfile.lock.json

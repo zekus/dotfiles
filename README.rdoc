@@ -1,8 +1,9 @@
 == Antonio Lorusso's dotfiles
 
-== Installation
+See CLAUDE.md for complete documentation.
 
-  git clone git://github.com/zekus/dotfiles ~/.dotfiles
+== Quick Start
+
+  git clone https://github.com/zekus/dotfiles ~/.dotfiles
   cd ~/.dotfiles
-  rake install
-  brew bundle
+  ./.scripts/install.sh
