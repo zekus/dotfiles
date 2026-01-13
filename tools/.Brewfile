@@ -3,7 +3,6 @@ tap "aws/tap"
 tap "homebrew/bundle"
 tap "stripe/stripe-cli"
 tap "nextdns/tap"
-tap "th-ch/youtube-music"
 tap "sst/tap"
 tap "oven-sh/bun"
 tap "satococoa/tap"
@@ -142,7 +141,6 @@ cask "google-chrome"
 # Casks - Media
 cask "vlc"
 cask "spotify"
-cask "youtube-music"
 cask "calibre"
 
 # Casks - Development
