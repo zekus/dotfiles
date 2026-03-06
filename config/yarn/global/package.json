@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@fission-ai/openspec": "^0.16.0",
-    "@github/copilot": "^0.0.365",
+    "@github/copilot": "^0.0.423",
     "@google/gemini-cli": "^0.18.0",
     "@openai/codex": "^0.63.0",
     "@opentelemetry/api": "^1.9.0",
